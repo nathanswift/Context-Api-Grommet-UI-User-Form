@@ -1,28 +1,24 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Navbar from './components/Navbar'
+import { Route, Switch } from 'react-router-dom'
+import AccountProfile from './components/AccountProfile'
+import { Grommet } from 'grommet'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <Grommet>
+    <Navbar />
+      <Switch>
+        <Route 
+          exact 
+          path="/" 
+          render={() => <div>Home</div>} 
+        />
+        <Route 
+          exact 
+          path="/account/profile" 
+          render={() => <AccountProfile />} />
+      </Switch>
+  </Grommet>
+)
 
 export default App;
